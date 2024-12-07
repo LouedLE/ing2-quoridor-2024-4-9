@@ -1,3 +1,31 @@
+Désert du Sahara
+
+Liste des sommets
+
+Dromadaire: Consommateur primaire 
+Fennec: Consommateur tertiaire
+Gerboise: Consommateur primaire
+Rapace: Consommateur tertiaire
+Scarabée: Consommateur secondaire
+Scorpion: Consommateur secondaire
+VégétauxMO: Producteur primaire
+
+Liste des arcs:
+
+VégétauxMO -> Dromadaires: 1.0
+VégéteauxMO -> Gerboise: 1.0
+VégétauxMO -> Scarabée: 1.0
+Gerboise -> Fennec:  
+Gerboise -> Rapace: 
+Scarabée -> Scorpion:  
+Scarabée -> Fennec:  
+Scorpion -> Fennec:  
+Scorpion -> Rapace:  
+
+
+
+
+
 # Sommets
 Cactus: Producteur primaire, 400
 Euphorbe: Producteur primaire, 300
