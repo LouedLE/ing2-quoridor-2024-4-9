@@ -1,0 +1,22 @@
+Nom: Reseau trophique simplifie du desert du Sahara
+Region: Afrique du Nord
+Climat: Climat dÃ©sertique
+Description: Un reseau trophique de difficulte 1 du desert du Sahara.
+7
+1 Producteurprimaire 70.0
+2 Consommateurprimaire 20.0
+3 Consommateurprimaire 20.0
+4 Consommateursecondaire 15.0
+5 Consommateursecondaire 15.0
+6 Consommateurtertiaire 10.0
+7 Consommateurtertiaire  10.0
+9
+1 2 1.0
+1 3 1.0
+1 4 1.0
+3 6 0.8
+3 7 0.5
+4 5 1.0
+4 6 0.2
+5 6 0.2
+6 7 0.5
