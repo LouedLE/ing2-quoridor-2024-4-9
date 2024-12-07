@@ -2,13 +2,14 @@ Désert du Sahara
 
 Liste des sommets
 
+VégétauxMO: Producteur primaire
 Dromadaire: Consommateur primaire 
-Fennec: Consommateur tertiaire
 Gerboise: Consommateur primaire
-Rapace: Consommateur tertiaire
 Scarabée: Consommateur secondaire
 Scorpion: Consommateur secondaire
-VégétauxMO: Producteur primaire
+Fennec: Consommateur tertiaire
+Rapace: Consommateur tertiaire
+
 
 Liste des arcs:
 
