@@ -61,12 +61,12 @@ void lireFichier(const char *nomFichier, Sommet sommets[], int *nbSommets, Arc a
     for (int i = 0; i < totalSommets; i++) {
         if (fgets(ligne, sizeof(ligne), fichier)) {
             nettoyerLigne(ligne);
-            int id;
+            char id[50];
             char type[50];
             float population;
 
-            if (sscanf(ligne, "%d %49[^ ] %f", &id, type, &population) == 3) {
-                sprintf(sommets[*nbSommets].nom, "Sommet %d", id);
+            if (sscanf(ligne, "%49s %49[^ ] %f", id, type, &population) == 3) {
+                strcpy(sommets[*nbSommets].nom, id); // Utilise directement l'identifiant comme chaîne
                 strcpy(sommets[*nbSommets].type, type);
                 sommets[*nbSommets].population = (int)population;
                 (*nbSommets)++;
@@ -94,12 +94,12 @@ void lireFichier(const char *nomFichier, Sommet sommets[], int *nbSommets, Arc a
     for (int i = 0; i < totalArcs; i++) {
         if (fgets(ligne, sizeof(ligne), fichier)) {
             nettoyerLigne(ligne);
-            int origine, destination;
+            char origine[50], destination[50];
             float poids;
 
-            if (sscanf(ligne, "%d %d %f", &origine, &destination, &poids) == 3) {
-                sprintf(arcs[*nbArcs].origine, "Sommet %d", origine);
-                sprintf(arcs[*nbArcs].destination, "Sommet %d", destination);
+            if (sscanf(ligne, "%49s %49s %f", origine, destination, &poids) == 3) {
+                strcpy(arcs[*nbArcs].origine, origine);
+                strcpy(arcs[*nbArcs].destination, destination);
                 arcs[*nbArcs].poids = poids;
                 (*nbArcs)++;
             } else {
@@ -112,6 +112,7 @@ void lireFichier(const char *nomFichier, Sommet sommets[], int *nbSommets, Arc a
 
     fclose(fichier);
 }
+
 
 void afficherPredecesseursEtSuccesseurs(Sommet sommets[], int nbSommets, Arc arcs[], int nbArcs) {
     for (int i = 0; i < nbSommets; i++) {
@@ -195,3 +196,4 @@ int main(void) {
 
     return 0;
 }
+
