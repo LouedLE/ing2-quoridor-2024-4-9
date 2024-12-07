@@ -1,0 +1,20 @@
+# Sommets
+Cactus: Producteur primaire, 400
+Euphorbe: Producteur primaire, 300
+Gazelle: Consommateur primaire, 50
+Fennec: Consommateur secondaire, 15
+Scarabée: Décomposeur, 100
+Bactérie du sol: Décomposeur, 200
+Sable: Ressource, -
+Soleil: Ressource, -
+
+# Arcs
+Cactus -> Gazelle: 0.6
+Euphorbe -> Gazelle: 0.4
+Gazelle -> Fennec: 1.0
+Déchets animaux -> Scarabée: 0.7
+Déchets animaux -> Bactérie du sol: 0.3
+Scarabée -> Sable: 0.5
+Bactérie du sol -> Sable: 0.5
+Sable -> Cactus: 0.7
+Soleil -> Cactus: 1.0
