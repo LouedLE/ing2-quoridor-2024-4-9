@@ -3,20 +3,20 @@ Region: Afrique du Nord
 Climat: Climat dÃ©sertique
 Description: Un reseau trophique de difficulte 1 du desert du Sahara.
 7
-1 Producteurprimaire 70.0
-2 Consommateurprimaire 20.0
-3 Consommateurprimaire 20.0
-4 Consommateursecondaire 15.0
-5 Consommateursecondaire 15.0
-6 Consommateurtertiaire 10.0
-7 Consommateurtertiaire  10.0
+Végétaux Producteurprimaire 70.0
+Dromadaire Consommateurprimaire 20.0
+Gerboise Consommateurprimaire 20.0
+Scarabée Consommateursecondaire 15.0
+Scorpion Consommateursecondaire 15.0
+Fennec Consommateurtertiaire 10.0
+Rapace Consommateurtertiaire  10.0
 9
-1 2 1.0
-1 3 1.0
-1 4 1.0
-3 6 0.8
-3 7 0.5
-4 5 1.0
-4 6 0.2
-5 6 0.2
-6 7 0.5
+Végétaux Dromadaire 1.0
+Végétaux Gerboise 1.0
+Végétaux Scarabée 1.0
+Gerboise Fennec 0.8
+Gerboise Rapace 0.5
+Scarabée Scorpion 1.0
+Scarabée Fennec 0.2
+Scorpion Fennec 0.2
+Fennec Rapace 0.5
