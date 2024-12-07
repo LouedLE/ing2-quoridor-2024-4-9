@@ -1,0 +1,76 @@
+/* La construction du réseau peut se faire à partir d'un fichier dont le nom est passé en paramètre
+Le fichier contient : ordre, taille,orientation (0 ou 1)et liste des arcs */
+Graphe * lire_graphe(char * nomFichier)
+{
+    Graphe* graphe;
+    FILE * ifs = fopen(nomFichier,"r");
+    int taille, orientation, ordre, s1, s2;
+
+    if (!ifs)
+    {
+        printf("Erreur de lecture fichier\n");
+        exit(-1);
+    }
+
+    fscanf(ifs,"%d",&ordre);//on lit les ordres
+
+    graphe=CreerGraphe(ordre); // créer le graphe d'ordre sommets
+
+    for(int i=0; i<ordre; i++) //lire chaque sommet en fonction du nombre lu en ordre
+    {
+        fscanf(ifs,"%d", &ssommet.valeur);// lecture des valeurs des sommets depuis le ficher txt
+    }
+
+    fscanf(ifs,"%d",&taille); // on lit la taille
+
+    fscanf(ifs,"%d",&orientation); // on lit l'orientation 0 ou 1 non orienté orienté
+
+    graphe->orientation = orientation;
+    graphe->ordre = ordre;
+
+    // on creer les arêtes du graphe
+    float p; //déclaration de p pour stocker le poids des arretes
+    for (int i=0; i<taille; ++i)
+    {
+        // on lit l'arrete comme ceci: s1: sommet départ s2: sommet arrivée p: poids de l'arrete
+        fscanf(ifs,"%d%d%f",&s1,&s2, &p);
+        graphe->pSommet=CreerArete(graphe->pSommet, s1, s2, p);// on crée l'arrete entre s1 et s2 de poids 'p'
+
+        if(!orientation)
+            graphe->pSommet=CreerArete(graphe->pSommet, s2, s1, p);//on ajoute le poids
+    }
+
+    return graphe;
+}
+
+
+
+
+
+
+Format fichier:
+
+X (Ordre du graphe: nombre de sommets)
+1 (Liste des sommets)
+2
+3
+4
+5
+6
+7
+8
+13 (taille du graphe (nombre d'arcs/arretes)
+1 
+1 2 2
+1 3 5
+2 3 2
+2 6 4
+3 4 3
+3 5 6
+4 5 1
+4 7 2
+5 8 4
+6 4 1
+6 7 4
+6 8 7
+7 8 2
