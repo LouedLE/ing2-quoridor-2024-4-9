@@ -1,0 +1,685 @@
+/* Définition des couleurs */
+:root {
+    --primary-color: #4FFB8A;
+    --secondary-color: #1D2024;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --hover-color: #3cb773;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Styles de base */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* En-tête */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 1em;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: var(--primary-color);
+}
+/* Couleurs de base du header pour les sections sombres */
+.dark-header {
+    background-color: #1D2024;
+    color: #fff;
+}
+
+.dark-header a {
+    color: #fff;
+}
+
+/* Couleurs du header pour les sections claires */
+.light-header {
+    background-color: #fff;
+    color: #333;
+}
+
+.light-header a {
+    color: #333;
+}
+/* Menu hamburger pour mobile */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    height: 4px;
+    width: 25px;
+    background: var(--text-color);
+    margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+    header {
+        justify-content: space-between;
+    }
+    .hamburger-menu {
+        display: flex;
+    }
+    nav {
+        display: none;
+    }
+    .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-color);
+        text-align: center;
+    }
+    .mobile-nav a {
+        padding: 1em;
+        color: #fff;
+        border-bottom: 1px solid var(--primary-color);
+    }
+    .mobile-nav a:hover {
+        color: var(--primary-color);
+    }
+}
+
+/* Section accueil */
+#accueil {
+    background-color: #fff;
+    padding: 5em 2em;
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#accueil h1 {
+    color: var(--secondary-color);
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 0.5em;
+}
+
+#accueil p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 2em;
+}
+
+/* Bouton CTA */
+.cta-button {
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Sections */
+section {
+    padding: 6em 2em;
+}
+
+h2 {
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+p, ul {
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Section cartes (ex: Avantages, Services) */
+.advantages, .services, .testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+}
+
+.advantage-item, .service-item, blockquote {
+    flex: 1 1 calc(45% - 2em);
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advantage-item:hover, .service-item:hover, blockquote:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Témoignages */
+blockquote {
+    font-style: italic;
+    border-left: 5px solid var(--primary-color);
+    padding: 1em 2em;
+    margin: 0;
+    position: relative;
+}
+
+blockquote footer {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-align: right;
+    margin-top: 1em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #accueil h1 {
+        font-size: 2rem;
+    }
+
+    .advantages, .services, .testimonials {
+        flex-direction: column;
+    }
+
+    .cta-button {
+        padding: 0.5em 1em;
+    }
+
+    .expertise-images img {
+        height: auto;
+    }
+}
+/* Section Contact */
+#contact {
+    padding: 6em 2em;
+    text-align: center;
+    background-color: #fff;
+}
+
+#contact h2 {
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.contact-info h3 {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.contact-info p, .contact-info a {
+    color: var(--text-color);
+    font-weight: 300;
+    text-decoration: none;
+}
+
+/* Formulaire de contact */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75em;
+    margin-bottom: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-form .cta-button {
+    width: 100%;
+    padding: 0.75em;
+    font-size: 1rem;
+}
+
+/* Messages de succès et d'erreur */
+.success-message, .error-message {
+    max-width: 600px;
+    margin: 1em auto;
+    padding: 1em;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+/* Section À Propos */
+#apropos {
+    padding: 6em 2em;
+    text-align: center;
+    background-color: #fff;
+}
+
+#apropos h2 {
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+#apropos p {
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+}
+
+/* Container for portraits */
+.portrait-container {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+/* Portrait styling */
+.portrait {
+    text-align: center;
+}
+
+.portrait img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portrait img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.portrait p {
+    margin-top: 0.5em;
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .portrait-container {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    #apropos p {
+        padding: 0 1em;
+    }
+}
+/* Sections Light and Dark */
+.light-section {
+    background-color: #fff;
+    color: var(--text-color);
+}
+
+.dark-section {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.dark-section h2,
+.dark-section p,
+.dark-section ul,
+.dark-section li {
+    color: #fff;
+}
+
+/* Hero Content */
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Bouton CTA dans les sections sombres */
+.dark-section .cta-button {
+    background-color: #fff;
+    color: var(--secondary-color);
+}
+
+.dark-section .cta-button:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Section Padding and Styling */
+section {
+    padding: 6em 2em;
+}
+
+h2 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+p, ul {
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Adjustments for Cards in Light and Dark Sections */
+.advantages, .services, .testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+}
+
+.advantage-item, .service-item, blockquote {
+    flex: 1 1 calc(45% - 2em);
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item img {
+    width: 40%; /* ou une autre valeur selon la taille souhaitée */
+    height: auto; /* pour conserver les proportions */
+    object-fit: cover; /* pour bien cadrer l'image dans la nouvelle taille */
+}
+
+.dark-section .advantage-item,
+.dark-section .service-item,
+.dark-section blockquote {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+.advantage-item:hover, .service-item:hover, blockquote:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+/* Testimonial Slider */
+.testimonials {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.testimonial-slider {
+    display: inline-flex;
+    gap: 4em;
+    animation: scroll 20s linear infinite;
+}
+
+/* Fond noir par défaut pour la section Notre Expertise */
+#expertise {
+    height: 60vh;
+    padding: 3em 2em;
+    overflow: hidden;
+    background-color: #1D2024;
+    position: relative;
+    z-index: 1;
+}
+
+/* Images débordantes */
+.expertise-images {
+    position: relative;
+    z-index: 0;
+}
+
+/* Enlève l'effet de débordement blanc en assurant que les images dépassent bien derrière */
+.column-left img:last-child,
+.column-right img:last-child {
+    margin-bottom: -50px;
+}
+
+/* Section suivante */
+#avantages {
+    position: relative;
+    z-index: 2;
+    background-color: #f9f9f9;
+}
+
+/* Ajout d'une transition pour un défilement fluide */
+html {
+    scroll-behavior: smooth;
+}
+
+.expertise-wrapper {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Images container */
+.expertise-images {
+    display: flex;
+    gap: 1em;
+    height: 100%;
+    margin-right: 2em;
+}
+
+/* Columns for images */
+.column-left, .column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Individual image styling */
+.expertise-images img {
+    width: 100%;
+    height: calc(100vh / 3);
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Darker filter for images in the left column */
+.column-left img {
+    filter: brightness(70%);
+}
+
+/* Permet aux images de dépasser du bas de la section */
+.column-left img:last-child,
+.column-right img:last-child {
+    margin-bottom: -50px;
+}
+
+/* Sticky content area */
+.expertise-content {
+    color: #fff;
+    flex: 1;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding-top: 2em;
+}
+
+/* Section styling */
+.dark-section {
+    background-color: #1D2024;
+    padding: 3em 0;
+}
+
+/* Animation pour la section "Notre Expertise" */
+.expertise-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.column-left, .column-right {
+    display: flex;
+    flex-direction: column;
+    animation: scrollColumn 20s linear infinite;
+}
+
+.column-right {
+    animation-duration: 30s;
+}
+
+@keyframes scrollColumn {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* Style des images avec espacement */
+.column-left img, .column-right img {
+    height: calc(33.33vh - 20px);
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+/* Formulaire */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    margin-bottom: 15px;
+}
+
+.account-container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: left;
+}
+
+.account-details {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
