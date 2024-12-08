@@ -1,0 +1,16 @@
+Nom: Reseau trophique de la foret d Alaska
+Region: Foret boreale canadienne
+Climat: Climat subarctique
+Description: Reseau trophique terrestre de difficulte 2 de la réserve nationale Yukon-Charley Rivers sur une portion d environ 50 km carre, le territoire d une meute de loup.
+6
+Mousse Producteurprimaire 100000.0
+Champignons Producteurprimaire 50000.0
+LievreAmerique Consommateurprimaire 400.0
+Coleoptere Consommateurprimaire 10000.0
+Consommateursecondaire 50.0
+Consommateursecondaire 5.0
+4
+Mousse LievreAmerique 1.0
+Champignons Coleoptere 1.0
+Coleoptere ChauveSouris 1.0
+LievreAmerique Loup 1.0
