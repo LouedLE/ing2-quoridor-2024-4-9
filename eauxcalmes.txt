@@ -1,0 +1,23 @@
+Nom: Reseau trophique des eaux calmes
+Region: France
+Climat: tempéré
+Description: Reseau trophique d'eaux calmes
+7
+vegetaux Producteurprimaire 1000000.0
+limnee Consommateurprimaire 1000.0
+breme Consommateursecondaire 200.0
+pouledeau Consommateursecondaire 700.0
+brochet Consommateurtertiaire 500.0
+grebe Consommateurquatre 100.0
+putois Consommateurcinq 50.0
+10
+vegetaux limnee 1.0
+vegetaux breme 1.0
+vegetaux pouledeau 1.0
+limnee grebe 0.1
+breme grebe 0.7
+breme brochet 1.0
+brochet grebe 0.2
+grebe putois 0.2
+brochet putois 0.4
+pouledeau putois 0.4
