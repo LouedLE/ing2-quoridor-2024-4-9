@@ -8,8 +8,8 @@ limnee Consommateurprimaire 1000.0
 breme Consommateursecondaire 200.0
 pouledeau Consommateursecondaire 700.0
 brochet Consommateurtertiaire 500.0
-grebe Consommateurquatre 100.0
-putois Consommateurcinq 50.0
+grebe Consommateurquaternaire 100.0
+putois Consommateurquinaire 50.0
 10
 vegetaux limnee 1.0
 vegetaux breme 1.0
