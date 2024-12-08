@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "graphe.h"
+#include "chainealimentaire.h"
 
 
 void nettoyerLigne(char *ligne) {
@@ -148,8 +150,98 @@ void afficherPredecesseursEtSuccesseurs(Sommet sommets[], int nbSommets, Arc arc
     }
 }
 
+void dfsConnexite(int current, bool visited[], Sommet sommets[], int nbSommets, Arc arcs[], int nbArcs) {
+    visited[current] = true;
+    for (int i = 0; i < nbArcs; i++) {
+        // Si l'origine de l'arc correspond au sommet actuel
+        if (strcmp(arcs[i].origine, sommets[current].nom) == 0) {
+            // Trouver l'indice du sommet destination
+            for (int j = 0; j < nbSommets; j++) {
+                if (strcmp(arcs[i].destination, sommets[j].nom) == 0 && !visited[j]) {
+                    dfsConnexite(j, visited, sommets, nbSommets, arcs, nbArcs);
+                }
+            }
+        }
+    }
+}
 
+bool verifierConnexite(Sommet sommets[], int nbSommets, Arc arcs[], int nbArcs) {
+    bool visited[MAX_SOMMETS] = {false};
 
+    // Lancer DFS à partir du premier sommet
+    dfsConnexite(0, visited, sommets, nbSommets, arcs, nbArcs);
+
+    // Vérifier si tous les sommets ont été visités
+    for (int i = 0; i < nbSommets; i++) {
+        if (!visited[i]) {
+            return false; // Le graphe n'est pas connexe
+        }
+    }
+
+    return true; // Le graphe est connexe
+}
+
+void premiermaillon(Sommet sommets[], int nbSommets, Arc arcs[], int nbArcs) {
+    printf("\nEspèce sans source d'alimentation :\n");
+    for (int i = 0; i < nbSommets; i++) {
+        int predecesseurTrouve = 0;
+        for (int j = 0; j < nbArcs; j++) {
+            if (strcmp(arcs[j].destination, sommets[i].nom) == 0) {
+                predecesseurTrouve = 1;
+                break;
+            }
+        }
+        if (!predecesseurTrouve) {
+            printf("%s (%s)\n", sommets[i].nom, sommets[i].type);
+        }
+    }
+}
+
+void derniermaillon(Sommet sommets[], int nbSommets, Arc arcs[], int nbArcs) {
+    printf("\nEspèce sans predateur : \n");
+    for (int i = 0; i < nbSommets; i++) {
+        int successeurTrouve = 0;
+        for (int j = 0; j < nbArcs; j++) {
+            if (strcmp(arcs[j].origine, sommets[i].nom) == 0) {
+                successeurTrouve = 1;
+                break;
+            }
+        }
+        if (!successeurTrouve) {
+            printf("%s (%s)\n", sommets[i].nom, sommets[i].type);
+        }
+    }
+}
+
+void unpredateur(Sommet sommets[], int nbSommets, Arc arcs[], int nbArcs) {
+    printf("\nEspèce avec un seul prédateur :\n");
+    for (int i = 0; i < nbSommets; i++) {
+        int nombrePredecesseurs = 0;
+        for (int j = 0; j < nbArcs; j++) {
+            if (strcmp(arcs[j].destination, sommets[i].nom) == 0) {
+                nombrePredecesseurs++;
+            }
+        }
+        if (nombrePredecesseurs == 1) {
+            printf("%s (%s)\n", sommets[i].nom, sommets[i].type);
+        }
+    }
+}
+
+void unesource(Sommet sommets[], int nbSommets, Arc arcs[], int nbArcs) {
+    printf("\nEspèce avec une seule source d'alimentation :\n");
+    for (int i = 0; i < nbSommets; i++) {
+        int nombreSuccesseurs = 0;
+        for (int j = 0; j < nbArcs; j++) {
+            if (strcmp(arcs[j].origine, sommets[i].nom) == 0) {
+                nombreSuccesseurs++;
+            }
+        }
+        if (nombreSuccesseurs == 1) {
+            printf("%s (%s)\n", sommets[i].nom, sommets[i].type);
+        }
+    }
+}
 
 
 
@@ -194,6 +286,35 @@ int main(void) {
     printf("\n--- Prédécesseurs et Successeurs ---\n");
     afficherPredecesseursEtSuccesseurs(sommets, nbSommets, arcs, nbArcs);
 
+    // Vérifier la connexité du graphe
+    if (verifierConnexite(sommets, nbSommets, arcs, nbArcs)) {
+        printf("\nLe graphe est connexe.\n");
+    } else {
+        printf("\nLe graphe n'est pas connexe.\n");
+    }
+
+    // espece sans predateur
+    premiermaillon(sommets, nbSommets, arcs, nbArcs);
+    //espece qui n'en consomment pas d'autres
+    derniermaillon(sommets, nbSommets, arcs, nbArcs);
+
+// Afficher les espèces avec un seul prédateur
+    unpredateur(sommets, nbSommets, arcs, nbArcs);
+
+    // Afficher les espèces avec une seule source de nourriture
+    unesource(sommets, nbSommets, arcs, nbArcs);
+
+    // Afficher toutes les chaînes alimentaires
+    afficherToutesLesChainesAlimentaires(sommets, nbSommets, arcs, nbArcs);
+
+// Identifier les espèces avec une seule source
+    printf("\n--- Especes avec une seule source de nourriture ---\n");
+    for (int i = 0; i < nbSommets; i++) {
+        if (verifierSourceUnique(sommets[i].nom, sommets, nbSommets, arcs, nbArcs)) {
+            printf("Espece avec une seule source de nourriture : %s (%s)\n", sommets[i].nom, sommets[i].type);
+        }
+    }
+
+
     return 0;
 }
-
