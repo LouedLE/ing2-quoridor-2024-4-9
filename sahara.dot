@@ -1,0 +1,39 @@
+digraph mongraphe {
+    rankdir=LR;
+    node [shape=ellipse, style=filled, fillcolor=lightyellow];
+    edge [fontname="Arial", fontsize=10, color=gray, penwidth=1.5];
+
+    vegetaux [shape=box, fillcolor=lightgreen, style="rounded,filled", label="Végétaux"];
+    dromadaire [shape=box, style="rounded,filled", fillcolor=lightblue, label="Dromadaire"];
+    gerboise [shape=box, style="rounded,filled", fillcolor=lightblue, label="Gerboise"];
+    scarabee [shape=box, style="rounded,filled", fillcolor=lightblue, label="Scarabée"];
+    mouflon [shape=box, style="rounded,filled", fillcolor=lightblue, label="Mouflon"];
+    gazelle [shape=box, style="rounded,filled", fillcolor=lightblue, label="Gazelle"];
+    fennec [shape=box, style="rounded,filled", fillcolor=lightsalmon, label="Fennec"];
+    rapace [shape=box, style="rounded,filled", fillcolor=gold, label="Rapace"];
+    chatdessables [shape=box, style="rounded,filled", fillcolor=orangered, label="Chat des sables"];
+    caracal [shape=box, style="rounded,filled", fillcolor=orangered, label="Caracal"];
+    scorpion [shape=box, style="rounded,filled", fillcolor=lightpink, label="Scorpion"];
+    lezard [shape=box, style="rounded,filled", fillcolor=lightpink, label="Lézard"];
+    guepard [shape=box, style="rounded,filled", fillcolor=red, label="Guépard"];
+
+    vegetaux -> dromadaire [label="1.0", color=darkgreen];
+    vegetaux -> gerboise [label="1.0", color=darkgreen];
+    vegetaux -> scarabee [label="1.0", color=darkgreen];
+    vegetaux -> mouflon [label="1.0", color=darkgreen];
+    vegetaux -> gazelle [label="1.0", color=darkgreen];
+    gerboise -> fennec [label="0.7", color=blue];
+    gerboise -> rapace [label="0.4", color=gold];
+    gerboise -> chatdessables [label="1.0", color=orange];
+    gerboise -> caracal [label="0.5", color=orange];
+    scarabee -> scorpion [label="1.0", color=pink];
+    scarabee -> lezard [label="1.0", color=pink];
+    scorpion -> fennec [label="0.3", color=blue];
+    chatdessables -> rapace [label="0.1", color=gold];
+    lezard -> rapace [label="0.4", color=gold];
+    lezard -> caracal [label="0.2", color=orange];
+    fennec -> rapace [label="0.1", color=gold];
+    mouflon -> guepard [label="0.3", color=red];
+    gazelle -> guepard [label="0.7", color=red];
+    gazelle -> caracal [label="0.3", color=orange];
+}

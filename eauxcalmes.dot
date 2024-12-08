@@ -1,0 +1,29 @@
+digraph mongraphe {
+    rankdir=LR;
+    node [shape=ellipse, style=filled, fillcolor=lightyellow];
+    edge [fontname="Arial", fontsize=10, color=gray, penwidth=1.5];
+
+    label = "Réseau trophique des eaux calmes";
+    labelloc = top;
+    fontsize = 12;
+    fontcolor = black;
+
+    vegetaux [shape=box, fillcolor=lightgreen, style="rounded,filled", label="Végétaux"];
+    limnee [shape=box, style="rounded,filled", fillcolor=lightblue, label="Limnée"];
+    breme [shape=box, style="rounded,filled", fillcolor=lightblue, label="Brème"];
+    pouledeau [shape=box, style="rounded,filled", fillcolor=lightblue, label="Poule d'eau"];
+    grebe [shape=box, style="rounded,filled", fillcolor=lightsalmon, label="Grèbe"];
+    brochet [shape=box, style="rounded,filled", fillcolor=orangered, label="Brochet"];
+    putois [shape=box, style="rounded,filled", fillcolor=gold, label="Putois"];
+
+    vegetaux -> limnee [label="1.0", color=darkgreen];
+    vegetaux -> breme [label="1.0", color=darkgreen];
+    vegetaux -> pouledeau [label="1.0", color=darkgreen];
+    limnee -> grebe [label="0.1", color=blue];
+    breme -> grebe [label="0.7", color=blue];
+    breme -> brochet [label="1.0", color=red];
+    brochet -> grebe [label="0.2", color=red];
+    grebe -> putois [label="0.2", color=gold];
+    brochet -> putois [label="0.4", color=gold];
+    pouledeau -> putois [label="0.4", color=gold];
+}

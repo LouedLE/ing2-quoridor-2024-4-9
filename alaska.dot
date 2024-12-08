@@ -1,0 +1,17 @@
+digraph mongraphe {
+    rankdir=LR; // Orientation gauche à droite pour une meilleure lisibilité
+    node [shape=ellipse, style=filled, fillcolor=lightyellow]; // Style par défaut pour les nœuds
+    edge [fontname="Arial", fontsize=10, color=gray, penwidth=1.5]; // Style par défaut pour les arêtes
+
+    mousse [shape=box, fillcolor=lightgreen, style="rounded,filled", label="Mousse"];
+    champignons [shape=box, style="rounded,filled",fillcolor=lightgreen, label="Champignons"];
+    lievreamerique [shape=box, style="rounded,filled", fillcolor=lightblue, label="Lièvre d'Amérique"];
+    coleoptere [shape=box, style="rounded,filled", fillcolor=lightpink, label="Coléoptère"];
+    chauvesouris [shape=box, style="rounded,filled", fillcolor=lightsalmon, label="Chauve-souris"];
+    loup [shape=box, style="rounded,filled", fillcolor=red, label="Loup"];
+
+    mousse -> lievreamerique [label="1.0", color=darkgreen];
+    champignons -> coleoptere [label="1.0", color=darkgreen];
+    coleoptere -> chauvesouris [label="1.0", color=gold];
+    lievreamerique -> loup [label="1.0", color=red];
+}
