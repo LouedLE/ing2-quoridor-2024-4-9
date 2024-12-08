@@ -1,0 +1,38 @@
+Nom: Reseau trophique simplifie du desert du Sahara
+Region: Afrique du Nord
+Climat: Climat desertique
+Description: Un reseau trophique de difficulte 2 du desert du Sahara sur une etendue de 100 km carre.
+13
+Vegetaux Producteurprimaire 1000000.0
+Dromadaire Consommateurprimaire 100.0
+Scarabee Consommateurprimaire 10000.0
+Gerboise Consommateurprimaire 5000.0
+Gazelle Consommateurprimaire 50.0
+Mouflon Consommateurprimaire 20.0
+Lezard Consommateursecondaire 7000.0
+Scorpion Consommateursecondaire 5000.0
+Chatdessables Consommateursecondaire 10.0
+Fennec Consommateurtertiaire 20.0
+Rapace Consommateurtertiaire  15.0
+Caracal Consommateurtertiaire 5.0
+Guepard Consommateurtertiaire 2.0
+19
+Vegetaux Dromadaire 1.0
+Vegetaux Gerboise 1.0
+Vegetaux Scarabee 1.0
+Vegetaux Mouflon 1.0
+Vegetaux Gazelle 1.0
+Gerboise Fennec 0.7
+Gerboise Rapace 0.4
+Gerboise Chatdessables 1.0
+Gerboise Caracal 0.5
+Scarabee Scorpion 1.0
+Scarabee Lezard 1.0
+Scorpion Fennec 0.3
+Chatdessables Rapace 0.1
+Lezard Rapace 0.4
+Lezard Caracal 0.2
+Fennec Rapace 0.1
+Mouflon Guepard 0.3
+Gazelle Guepard 0.7
+Gazelle Caracal 0.3
